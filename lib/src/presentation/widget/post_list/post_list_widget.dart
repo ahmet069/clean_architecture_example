@@ -14,32 +14,25 @@ class _PostListWidgetState extends State<PostListWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PostBloc, PostState>(builder: (context, state) {
-      return Column(
-        children: [
-          if (state is PostInitial) CircularProgressIndicator(),
-          if (state is PostHasData)
-            Container(
-              child: Container(
-                height: 100.h,
-                child: SingleChildScrollView(
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: state.data.length,
-                    itemBuilder: ((context, index) {
-                      final item = state.data[index];
-                      return ListTile(
-                        leading: Text(item.id.toString()),
-                        title: Text(item.title as String),
-                        subtitle: Text(item.body as String),
-                      );
-                    }),
-                  ),
-                ),
-              ),
-            )
-        ],
-      );
+      if (state is PostHasData) {
+        return ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: state.data.length,
+          itemBuilder: ((context, index) {
+            final item = state.data[index];
+            return ListTile(
+              leading: Text(item.id.toString()),
+              title: Text(item.title as String),
+              subtitle: Text(item.body as String),
+            );
+          }),
+        );
+      } else {
+        return Center(
+          child: Text("data"),
+        );
+      }
     });
   }
 }
