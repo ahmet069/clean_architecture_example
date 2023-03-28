@@ -1,3 +1,4 @@
+import 'package:clean_architecture_example/src/domain/entities/post/post.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -18,6 +19,18 @@ class PostModel extends Equatable {
 
   Map<String, dynamic> toJson() => _$PostModelToJson(this);
 
+  Post toEntity() => Post(
+        body: body,
+        id: int.parse(id.toString()),
+        title: title,
+        userId: int.parse(userId.toString()),
+      );
+
   @override
-  List<Object?> get props => [userId, id, title, body];
+  List<Object?> get props => [
+        userId,
+        id,
+        title,
+        body,
+      ];
 }

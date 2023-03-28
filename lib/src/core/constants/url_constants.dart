@@ -5,4 +5,5 @@ class UrlConstants {
 
   //* paths
   static const getAllUsers = '/users';
+  static const getAllPosts = '/posts';
 }

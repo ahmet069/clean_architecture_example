@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clean_architecture_example/src/presentation/view/home_view.dart';
+import 'package:clean_architecture_example/src/presentation/view/post_list_view.dart';
 import 'package:clean_architecture_example/src/presentation/view/search_view.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -22,6 +23,7 @@ part 'app_router.gr.dart';
       name: 'SearchRouter',
       page: SearchView,
     ),
+    AutoRoute(page: PostListView, path: '/PostListView', name: 'PostRouter'),
   ],
 )
 

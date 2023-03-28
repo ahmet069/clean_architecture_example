@@ -1,3 +1,6 @@
+import 'package:clean_architecture_example/main.dart';
+import 'package:clean_architecture_example/src/config/router/app_router.dart';
+import 'package:clean_architecture_example/src/presentation/widget/home/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,15 +23,19 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<UserBloc, UserState>(
-        builder: (context, state) {
-          return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Center(child: Text('Hello World!')),
-            if (state is UserInitial) CircularProgressIndicator(),
-            if (state is UserHasData)
-              Column(children: state.data.map((e) => Text(e.address.toString())).toList())
-          ]);
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await router.push(PostRouter());
         },
+      ),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(143, 1, 0, 0),
+        title: Text("Home View"),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: UserList(),
+        ),
       ),
     );
   }

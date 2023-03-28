@@ -29,6 +29,12 @@ class _$AppRouter extends RootStackRouter {
         child: const SearchView(),
       );
     },
+    PostRouter.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const PostListView(),
+      );
+    },
   };
 
   @override
@@ -40,6 +46,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           SearchRouter.name,
           path: '/SearchView',
+        ),
+        RouteConfig(
+          PostRouter.name,
+          path: '/PostListView',
         ),
       ];
 }
@@ -66,4 +76,16 @@ class SearchRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'SearchRouter';
+}
+
+/// generated route for
+/// [PostListView]
+class PostRouter extends PageRouteInfo<void> {
+  const PostRouter()
+      : super(
+          PostRouter.name,
+          path: '/PostListView',
+        );
+
+  static const String name = 'PostRouter';
 }
