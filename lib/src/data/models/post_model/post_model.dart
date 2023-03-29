@@ -11,7 +11,12 @@ class PostModel extends Equatable {
   final String? title;
   final String? body;
 
-  const PostModel({this.userId, this.id, this.title, this.body});
+  const PostModel({
+    this.userId,
+    this.id,
+    this.title,
+    this.body,
+  });
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return _$PostModelFromJson(json);
@@ -21,9 +26,9 @@ class PostModel extends Equatable {
 
   Post toEntity() => Post(
         body: body,
-        id: int.parse(id.toString()),
+        id: id as int,
         title: title,
-        userId: int.parse(userId.toString()),
+        userId: userId as int,
       );
 
   @override

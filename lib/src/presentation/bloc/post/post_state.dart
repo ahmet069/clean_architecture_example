@@ -7,6 +7,7 @@ abstract class PostState extends Equatable {
   List<Object> get props => [];
 }
 
+//* Normal Post
 class PostInitial extends PostState {}
 
 // when ı have error
@@ -27,4 +28,19 @@ class PostHasData extends PostState {
 
   @override
   List<Object> get props => [data];
+}
+
+//* Filter Posts
+class FilterPostInitial extends PostState {}
+
+class FilterPostsError extends PostState {
+  final String message;
+
+  FilterPostsError({required this.message});
+}
+
+class FilterPostsHasData extends PostState {
+  final List<Post> data;
+
+  FilterPostsHasData({required this.data});
 }

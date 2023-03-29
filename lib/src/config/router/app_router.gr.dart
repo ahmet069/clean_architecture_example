@@ -24,9 +24,12 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     SearchRouter.name: (routeData) {
-      return AdaptivePage<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: const SearchView(),
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     PostRouter.name: (routeData) {

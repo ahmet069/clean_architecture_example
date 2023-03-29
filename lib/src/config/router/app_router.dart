@@ -18,12 +18,17 @@ part 'app_router.gr.dart';
       page: HomeView,
       initial: true,
     ),
-    AutoRoute(
+    CustomRoute(
       path: '/SearchView',
       name: 'SearchRouter',
       page: SearchView,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
-    AutoRoute(page: PostListView, path: '/PostListView', name: 'PostRouter'),
+    AutoRoute(
+      page: PostListView,
+      path: '/PostListView',
+      name: 'PostRouter',
+    ),
   ],
 )
 
